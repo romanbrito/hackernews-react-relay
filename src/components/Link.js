@@ -4,9 +4,8 @@ import {
   graphql
 } from 'react-relay'
 import {GC_AUTH_TOKEN, GC_USER_ID} from '../constants'
-import {timeDifferenceForDate} from '../utils'
+import {timeDifferenceForDate, fetchQuery} from '../utils'
 import CreateVoteMutation from '../mutations/CreateVoteMutation'
-import environment from '../Environment'
 
 class Link extends Component {
 
@@ -65,7 +64,6 @@ class Link extends Component {
 
     return result.data.viewer.allVotes.edges.length === 0
 
-    //return true
   }
 
 }
@@ -85,20 +83,3 @@ export default createFragmentContainer(Link, graphql`
         }
     }
 `)
-
-function fetchQuery(operation, variables) {
-  return fetch('https://api.graph.cool/relay/v1/cjc12chfs0t2u01146quvtcu4', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem(GC_AUTH_TOKEN)}`
-    },
-    body: JSON.stringify({
-      query: operation.text,
-      variables,
-    }),
-  }).then(response => {
-    return response.json()
-  })
-}
