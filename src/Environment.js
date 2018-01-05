@@ -32,9 +32,10 @@ export const fetchQuery = (operation, variables) => {
 
 const setupSubscription = (config, variables,cacheConfig, observer) => {
   const query = config.text
-
+  console.log(query);
   const subscriptionClient = new SubscriptionClient('wss://subscriptions.us-west-2.graph.cool/v1/cjc12chfs0t2u01146quvtcu4', {reconnect: true})
   subscriptionClient.subscribe({query, variables}, (error, result) => {
+    console.log(result);
     observer.onNext({data:result})
   })
 }
