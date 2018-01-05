@@ -1441,3 +1441,42 @@ enum VoteOrderBy {
   updatedAt_ASC
   updatedAt_DESC
 }
+
+type Subscription {
+  Link: LinkSubscriptionPayload
+  Vote: VoteSubscriptionPayload
+}
+
+type LinkSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Link
+  updatedFields: [String!]
+  previousValues: LinkPreviousValues
+}
+
+type VoteSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Vote
+  updatedFields: [String!]
+  previousValues: VotePreviousValues
+}
+
+enum _ModelMutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type LinkPreviousValues {
+  createdAt: DateTime!
+  description: String!
+  id: ID!
+  updatedAt: DateTime!
+  url: String!
+}
+
+type VotePreviousValues {
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+}
