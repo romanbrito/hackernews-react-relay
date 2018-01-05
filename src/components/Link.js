@@ -4,7 +4,8 @@ import {
   graphql
 } from 'react-relay'
 import {GC_AUTH_TOKEN, GC_USER_ID} from '../constants'
-import {timeDifferenceForDate, fetchQuery} from '../utils'
+import {timeDifferenceForDate} from '../utils'
+import {fetchQuery} from '../Environment'
 import CreateVoteMutation from '../mutations/CreateVoteMutation'
 
 class Link extends Component {

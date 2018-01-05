@@ -45,19 +45,19 @@ export function timeDifferenceForDate(date) {
   return timeDifference(now, updated)
 }
 
-export function fetchQuery(operation, variables) {
-  return fetch('https://api.graph.cool/relay/v1/cjc12chfs0t2u01146quvtcu4', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem(GC_AUTH_TOKEN)}`
-    },
-    body: JSON.stringify({
-      query: operation.text,
-      variables,
-    }),
-  }).then(response => {
-    return response.json()
-  })
-}
+// export function fetchQuery(operation, variables) {
+//   return fetch('https://api.graph.cool/relay/v1/cjc12chfs0t2u01146quvtcu4', {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json',
+//       'Authorization': `Bearer ${localStorage.getItem(GC_AUTH_TOKEN)}`
+//     },
+//     body: JSON.stringify({
+//       query: operation.text,
+//       variables,
+//     }),
+//   }).then(response => {
+//     return response.json()
+//   })
+// }
