@@ -12,7 +12,7 @@ class CreateLink extends Component {
 
     return (
       <div>
-        <div>
+        <div className='flex flex-column mt3'>
           <input
             className='mb2'
             value={this.state.description}
